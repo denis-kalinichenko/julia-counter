@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Julia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link rel="stylesheet" href="http://flipclockjs.com/_themes/flipclockjs/css/flipclock.css">
+    <script src="http://flipclockjs.com/_themes/flipclockjs/js/libs/jquery.js"></script>
+    <script src="http://flipclockjs.com/_themes/flipclockjs/js/flipclock/flipclock.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style>
+        html, body {
+            font-family: 'Gloria Hallelujah', cursive;
+            width: 100%;
+            height: 100%;
+        }
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        .Aligner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .Aligner-item {
+            font-size: 10vmin;
+            text-align: center;
+        }
+        .julia-clock {
+            width: auto;
+            display: inline-block;
+            margin-top: 70px;
+        }
+        .image {
+            border-radius: 10px;
+            width: 30vmin;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var end = new Date('12/06/2018 12:00');
+            var now = new Date();
+
+            var distance = end.getTime() - now.getTime();
+            distance = distance / 1000;
+
+            if (distance < 0) {
+                alert("juz");
+                return;
+            }
+
+            $('.julia-clock').FlipClock(distance, {
+                countdown: true,
+                clockFace: 'DailyCounter',
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="Aligner">
+        <div class="Aligner-item">
+            <img src="julia.jpg" alt="Julia" class="image"><br>
+            Julia, you have only... <br>
+            <div class="julia-clock"></div>
+        </div>
+
+    </div>
+</body>
+</html>
